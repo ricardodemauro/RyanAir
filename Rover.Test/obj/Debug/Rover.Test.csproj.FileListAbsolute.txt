@@ -1,0 +1,6 @@
+C:\Projetos\RyanAir\Rover.Test\bin\Debug\Rover.Test.dll
+C:\Projetos\RyanAir\Rover.Test\bin\Debug\Rover.Test.pdb
+C:\Projetos\RyanAir\Rover.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Projetos\RyanAir\Rover.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Projetos\RyanAir\Rover.Test\obj\Debug\Rover.Test.dll
+C:\Projetos\RyanAir\Rover.Test\obj\Debug\Rover.Test.pdb

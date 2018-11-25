@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rover.UI", "Rover\Rover.UI.csproj", "{40953B43-3748-4281-A85E-0A0C480D0647}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rover.Test", "Rover.Test\Rover.Test.csproj", "{F45896D5-0948-496F-ADD3-669724EFA744}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rover.Domain", "Rover.Domain\Rover.Domain.csproj", "{41AB0191-DDBD-4CC7-AEA1-FE4799F8AA8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rover.Application", "Rover.Application\Rover.Application.csproj", "{306CF499-FBB9-490C-AA20-6C409F0034AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40953B43-3748-4281-A85E-0A0C480D0647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40953B43-3748-4281-A85E-0A0C480D0647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40953B43-3748-4281-A85E-0A0C480D0647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40953B43-3748-4281-A85E-0A0C480D0647}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F45896D5-0948-496F-ADD3-669724EFA744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F45896D5-0948-496F-ADD3-669724EFA744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F45896D5-0948-496F-ADD3-669724EFA744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F45896D5-0948-496F-ADD3-669724EFA744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41AB0191-DDBD-4CC7-AEA1-FE4799F8AA8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41AB0191-DDBD-4CC7-AEA1-FE4799F8AA8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41AB0191-DDBD-4CC7-AEA1-FE4799F8AA8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41AB0191-DDBD-4CC7-AEA1-FE4799F8AA8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{306CF499-FBB9-490C-AA20-6C409F0034AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{306CF499-FBB9-490C-AA20-6C409F0034AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{306CF499-FBB9-490C-AA20-6C409F0034AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{306CF499-FBB9-490C-AA20-6C409F0034AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

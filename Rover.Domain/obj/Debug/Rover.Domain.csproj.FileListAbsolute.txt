@@ -1,0 +1,4 @@
+C:\Projetos\RyanAir\Rover.Domain\bin\Debug\Rover.Domain.dll
+C:\Projetos\RyanAir\Rover.Domain\bin\Debug\Rover.Domain.pdb
+C:\Projetos\RyanAir\Rover.Domain\obj\Debug\Rover.Domain.dll
+C:\Projetos\RyanAir\Rover.Domain\obj\Debug\Rover.Domain.pdb

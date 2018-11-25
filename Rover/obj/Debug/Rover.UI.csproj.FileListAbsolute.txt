@@ -1,0 +1,8 @@
+C:\Projetos\RyanAir\Rover\bin\Debug\Rover.UI.exe.config
+C:\Projetos\RyanAir\Rover\bin\Debug\Rover.UI.exe
+C:\Projetos\RyanAir\Rover\bin\Debug\Rover.UI.pdb
+C:\Projetos\RyanAir\Rover\bin\Debug\Rover.Application.dll
+C:\Projetos\RyanAir\Rover\bin\Debug\Rover.Application.pdb
+C:\Projetos\RyanAir\Rover\obj\Debug\Rover.UI.csprojResolveAssemblyReference.cache
+C:\Projetos\RyanAir\Rover\obj\Debug\Rover.UI.exe
+C:\Projetos\RyanAir\Rover\obj\Debug\Rover.UI.pdb
