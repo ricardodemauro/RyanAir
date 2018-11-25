@@ -17,6 +17,7 @@ namespace Rover.UI
                 while (true)
                 {
                     var command = Console.ReadLine();
+
                     if (command != "L" && command != "R" && command != "F")
                         throw new Exception("invalid command");
 

@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ICommand.cs" />
+    <Compile Include="Entities\Command.cs" />
     <Compile Include="Enums\RoverFacing.cs" />
-    <Compile Include="ICommandFactory.cs" />
+    <Compile Include="Contracts\ICommandFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
