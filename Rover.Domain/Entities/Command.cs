@@ -10,7 +10,10 @@ namespace Rover.Domain
 
         public bool ValidateCommand()
         {
-            throw new NotImplementedException();
+            if (Abreviation != "L" && Abreviation != "R" && Abreviation != "F")
+                return false;
+
+            return true;
         }
     }
 }

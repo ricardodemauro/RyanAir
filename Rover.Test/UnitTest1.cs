@@ -13,13 +13,13 @@ namespace Rover.Test
         UnityContainer container = new UnityContainer();
 
         [TestMethod]
-        [ExpectedException(typeof(NotImplementedException))]
-        public void ValideCommand_NonExistentMethod_NotImplementedException()
+        public void ValidateCommand_ValidateLowerCase_False()
         {
             container.RegisterType<ICommand, Command>();
             var command = container.Resolve<ICommand>();
             command.Abreviation = "r";
-            command.ValidateCommand();
+            var result = command.ValidateCommand();
+            Assert.AreEqual(false, result);
         }
     }
 }
