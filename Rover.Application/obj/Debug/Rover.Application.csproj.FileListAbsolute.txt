@@ -1,7 +1,0 @@
-C:\Projetos\RyanAir\Rover.Application\bin\Debug\Rover.Application.dll
-C:\Projetos\RyanAir\Rover.Application\bin\Debug\Rover.Application.pdb
-C:\Projetos\RyanAir\Rover.Application\bin\Debug\Rover.Domain.dll
-C:\Projetos\RyanAir\Rover.Application\bin\Debug\Rover.Domain.pdb
-C:\Projetos\RyanAir\Rover.Application\obj\Debug\Rover.Application.csprojResolveAssemblyReference.cache
-C:\Projetos\RyanAir\Rover.Application\obj\Debug\Rover.Application.dll
-C:\Projetos\RyanAir\Rover.Application\obj\Debug\Rover.Application.pdb
