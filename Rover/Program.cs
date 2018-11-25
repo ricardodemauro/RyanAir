@@ -1,5 +1,7 @@
 ﻿using Rover.Application;
+using Rover.Domain;
 using System;
+using Unity;
 
 namespace Rover.UI
 {
@@ -7,47 +9,30 @@ namespace Rover.UI
     {
         public static void Main()
         {
-            var roverPositionX = 0;
-            var roverPositionY = 0;
-            var roverFacing = RoverFacing.North;
-
-            while (true)
+            try
             {
-                var command = Console.ReadLine();
-                if (command != "L" && command != "R" && command != "F")
-                    throw new Exception("invalid command");
+                var container = new UnityContainer();
+                container.RegisterType<ICommandFactory, CommandFactory>();
 
-                switch (command)
+                while (true)
                 {
-                    case "L":
-                        roverFacing = roverFacing == RoverFacing.North ? RoverFacing.West : (RoverFacing)((int)roverFacing - 1);
-                        Console.WriteLine($"Rover is now at {roverPositionX}, {roverPositionY} - facing {roverFacing}");
-                        break;
-                    case "R":
-                        roverFacing = roverFacing == RoverFacing.West ? RoverFacing.North : (RoverFacing)((int)roverFacing + 1);
-                        Console.WriteLine($"Rover is now at {roverPositionX}, {roverPositionY} - facing {roverFacing}");
-                        break;
-                    case "F":
-                        switch (roverFacing)
-                        {
-                            case RoverFacing.North:
-                                roverPositionX++;
-                                break;
-                            case RoverFacing.East:
-                                roverPositionY++;
-                                break;
-                            case RoverFacing.South:
-                                roverPositionX--;
-                                break;
-                            case RoverFacing.West:
-                                roverPositionY--;
-                                break;
-                        }
-                        Console.WriteLine($"Rover is now at {roverPositionX}, {roverPositionY} - facing {roverFacing}");
-                        break;
-                    default:
+                    var command = Console.ReadLine();
+                    if (command != "L" && command != "R" && command != "F")
                         throw new Exception("invalid command");
+
+                    var factory = container.Resolve<ICommandFactory>();
+
+                    factory.ExecuteCommand(command);                    
                 }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+
             }
         }
     }

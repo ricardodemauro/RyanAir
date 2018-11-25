@@ -1,4 +1,4 @@
-﻿namespace Rover.Application
+﻿namespace Rover.Domain
 {
     public enum RoverFacing
     {
