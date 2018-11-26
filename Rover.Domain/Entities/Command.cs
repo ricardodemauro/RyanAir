@@ -20,7 +20,8 @@ namespace Rover.Domain
 
         public void ChangeFacingPosition(ref RoverFacing roverFacing, ref int roverPositionX, ref int roverPositionY)
         {
-            throw new NotImplementedException();
+            roverFacing = roverFacing == RoverFacing.North ? RoverFacing.West : (RoverFacing)((int)roverFacing - 1);
+            Console.WriteLine($"Rover is now at {roverPositionX}, {roverPositionY} - facing {roverFacing}");
         }
     }
 }
