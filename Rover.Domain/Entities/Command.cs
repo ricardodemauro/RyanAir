@@ -10,7 +10,9 @@ namespace Rover.Domain
 
         public bool ValidateCommand()
         {
-            if (Abreviation != "L" && Abreviation != "R" && Abreviation != "F")
+            if (Abreviation.ToUpper() != "L" && 
+                Abreviation.ToUpper() != "R" && 
+                Abreviation.ToUpper() != "F")
                 return false;
 
             return true;

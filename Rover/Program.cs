@@ -1,5 +1,6 @@
 ﻿using Rover.Application;
 using Rover.Domain;
+using Rover.Domain.Contracts;
 using System;
 using Unity;
 
@@ -13,17 +14,16 @@ namespace Rover.UI
             {
                 var container = new UnityContainer();
                 container.RegisterType<ICommandFactory, CommandFactory>();
+                container.RegisterType<ICommand, Command>();
+                var factory = container.Resolve<ICommandFactory>();
+                var command = container.Resolve<ICommand>();
 
                 while (true)
                 {
-                    var command = Console.ReadLine();
-
-                    if (command != "L" && command != "R" && command != "F")
-                        throw new Exception("invalid command");
-
-                    var factory = container.Resolve<ICommandFactory>();
-
-                    factory.ExecuteCommand(command);                    
+                    Console.WriteLine("Write a command.\nRotate Left (L); Rotate Right (R), Forward (F):");
+                    command.Abreviation = Console.ReadLine();
+                    command.ValidateCommand();
+                    factory.ExecuteCommand(command.Abreviation);
                 }
             }
             catch (Exception)

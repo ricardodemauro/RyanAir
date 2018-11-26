@@ -1,7 +1,5 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Unity;
-using Rover.Application;
 using Rover.Domain;
 using Rover.Domain.Contracts;
 
@@ -19,7 +17,7 @@ namespace Rover.Test
             var command = container.Resolve<ICommand>();
             command.Abreviation = "r";
             var result = command.ValidateCommand();
-            Assert.AreEqual(false, result);
+            Assert.AreEqual(true, result);
         }
     }
 }
