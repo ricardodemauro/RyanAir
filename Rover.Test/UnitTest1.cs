@@ -20,7 +20,7 @@ namespace Rover.Test
         }
 
         [TestMethod]
-        public void InvalidateCommand_ValidateLowerCase_False()
+        public void Validate_InvalidCommand_False()
         {
             var command = container.Resolve<ICommand>();
             command.Abreviation = "a";
@@ -29,7 +29,7 @@ namespace Rover.Test
         }
 
         [TestMethod]
-        public void NullCommand_ValidateLowerCase_False()
+        public void Validate_NullCommand_False()
         {
             var command = container.Resolve<ICommand>();
             command.Abreviation = "";
@@ -38,7 +38,7 @@ namespace Rover.Test
         }
 
         [TestMethod]
-        public void ValidateCommand_ValidateLowerCase_False()
+        public void Validate_LowerCase_True()
         {
             var command = container.Resolve<ICommand>();
             command.Abreviation = "r";
@@ -49,67 +49,125 @@ namespace Rover.Test
         [TestMethod]
         public void ChangeFacing_LeftPosition_Success()
         {
-            var command = container.Resolve<ICommand>();
-            var factory = container.Resolve<ICommandFactory>();
             var robot = container.Resolve<IRobot>();
+            robot.RoverFacing = RoverFacing.North;
+            robot.ChangeFacing(true);
 
-            command.Abreviation = "l";
-            factory.ExecuteCommand(command.Abreviation, robot);
+            Assert.AreEqual(RoverFacing.West, robot.RoverFacing);
         }
 
         [TestMethod]
         public void ChangeFacing_RightPosition_Success()
         {
-            var command = container.Resolve<ICommand>();
-            var factory = container.Resolve<ICommandFactory>();
             var robot = container.Resolve<IRobot>();
+            robot.RoverFacing = RoverFacing.North;
+            robot.ChangeFacing(false);
 
-            command.Abreviation = "r";
-            factory.ExecuteCommand(command.Abreviation, robot);
+            Assert.AreEqual(RoverFacing.East, robot.RoverFacing);
         }
 
         [TestMethod]
         public void MoveForward_FacingWest00_Fail()
         {
-            var command = container.Resolve<ICommand>();
-            var factory = container.Resolve<ICommandFactory>();
             var robot = container.Resolve<IRobot>();
+            robot.RoverPositionX = 0;
+            robot.RoverPositionY = 0;
+            robot.RoverFacing = RoverFacing.West;
+            robot.MoveForward();
 
-            command.Abreviation = "f";
-            factory.ExecuteCommand(command.Abreviation, robot);
+            Assert.AreEqual(0, robot.RoverPositionX);
+            Assert.AreEqual(0, robot.RoverPositionY);
+        }
+
+        [TestMethod]
+        public void MoveForward_FacingWest11_Success()
+        {
+            var robot = container.Resolve<IRobot>();
+            robot.RoverPositionX = 1;
+            robot.RoverPositionY = 1;
+            robot.RoverFacing = RoverFacing.West;
+            robot.MoveForward();
+
+            Assert.AreEqual(1, robot.RoverPositionX);
+            Assert.AreEqual(0, robot.RoverPositionY);
         }
 
         [TestMethod]
         public void MoveForward_FacingEast04_Fail()
         {
-            var command = container.Resolve<ICommand>();
-            var factory = container.Resolve<ICommandFactory>();
             var robot = container.Resolve<IRobot>();
+            robot.RoverPositionX = 0;
+            robot.RoverPositionY = 4;
+            robot.RoverFacing = RoverFacing.East;
+            robot.MoveForward();
 
-            command.Abreviation = "f";
-            factory.ExecuteCommand(command.Abreviation, robot);
+            Assert.AreEqual(0, robot.RoverPositionX);
+            Assert.AreEqual(4, robot.RoverPositionY);
+        }
+
+        [TestMethod]
+        public void MoveForward_FacingEast11_Fail()
+        {
+            var robot = container.Resolve<IRobot>();
+            robot.RoverPositionX = 1;
+            robot.RoverPositionY = 1;
+            robot.RoverFacing = RoverFacing.East;
+            robot.MoveForward();
+
+            Assert.AreEqual(1, robot.RoverPositionX);
+            Assert.AreEqual(2, robot.RoverPositionY);
         }
 
         [TestMethod]
         public void MoveForward_FacingSouth00_Fail()
         {
-            var command = container.Resolve<ICommand>();
-            var factory = container.Resolve<ICommandFactory>();
             var robot = container.Resolve<IRobot>();
+            robot.RoverPositionX = 0;
+            robot.RoverPositionY = 0;
+            robot.RoverFacing = RoverFacing.South;
+            robot.MoveForward();
 
-            command.Abreviation = "f";
-            factory.ExecuteCommand(command.Abreviation, robot);
+            Assert.AreEqual(0, robot.RoverPositionX);
+            Assert.AreEqual(0, robot.RoverPositionY);
+        }
+
+        [TestMethod]
+        public void MoveForward_FacingSouth11_Fail()
+        {
+            var robot = container.Resolve<IRobot>();
+            robot.RoverPositionX = 1;
+            robot.RoverPositionY = 1;
+            robot.RoverFacing = RoverFacing.South;
+            robot.MoveForward();
+
+            Assert.AreEqual(0, robot.RoverPositionX);
+            Assert.AreEqual(1, robot.RoverPositionY);
         }
 
         [TestMethod]
         public void MoveForward_FacingNorth40_Fail()
         {
-            var command = container.Resolve<ICommand>();
-            var factory = container.Resolve<ICommandFactory>();
             var robot = container.Resolve<IRobot>();
+            robot.RoverPositionX = 4;
+            robot.RoverPositionY = 0;
+            robot.RoverFacing = RoverFacing.North;
+            robot.MoveForward();
 
-            command.Abreviation = "f";
-            factory.ExecuteCommand(command.Abreviation, robot);
+            Assert.AreEqual(4, robot.RoverPositionX);
+            Assert.AreEqual(0, robot.RoverPositionY);
+        }
+
+        [TestMethod]
+        public void MoveForward_FacingNorth11_Fail()
+        {
+            var robot = container.Resolve<IRobot>();
+            robot.RoverPositionX = 1;
+            robot.RoverPositionY = 1;
+            robot.RoverFacing = RoverFacing.North;
+            robot.MoveForward();
+
+            Assert.AreEqual(2, robot.RoverPositionX);
+            Assert.AreEqual(1, robot.RoverPositionY);
         }
     }
 }

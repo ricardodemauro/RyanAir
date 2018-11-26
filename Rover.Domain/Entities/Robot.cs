@@ -5,9 +5,13 @@ namespace Rover.Domain.Entities
 {
     public class Robot : IRobot
     {
-        static RoverFacing roverFacing;
-        static int roverPositionX;
-        static int roverPositionY;
+        private static RoverFacing roverFacing;
+        private static int roverPositionX;
+        private static int roverPositionY;
+
+        public RoverFacing RoverFacing { get { return roverFacing; } set { roverFacing = value; } }
+        public int RoverPositionX { get { return roverPositionX; } set { roverPositionX = value; } }
+        public int RoverPositionY { get { return roverPositionY; } set { roverPositionY = value; } }
 
         public void ChangeFacing(bool left)
         {
@@ -40,6 +44,7 @@ namespace Rover.Domain.Entities
                         roverPositionY--;
                     break;
             }
+
             Console.WriteLine($"Rover is now at {roverPositionX}, {roverPositionY} - facing {roverFacing}");
         }
     }
