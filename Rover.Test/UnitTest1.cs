@@ -2,6 +2,8 @@
 using Unity;
 using Rover.Domain;
 using Rover.Domain.Contracts;
+using Rover.Application;
+using Rover.Domain.Entities;
 
 namespace Rover.Test
 {
@@ -10,27 +12,40 @@ namespace Rover.Test
     {
         UnityContainer container = new UnityContainer();
 
-        static RoverFacing roverFacing;
-        static int roverPositionX;
-        static int roverPositionY;
+        public UnitTest1()
+        {
+            container.RegisterType<ICommand, Command>();
+            container.RegisterType<ICommandFactory, CommandFactory>();
+            container.RegisterType<IRobot, Robot>();
+        }
+
+        [TestMethod]
+        public void InvalidateCommand_ValidateLowerCase_False()
+        {
+            var command = container.Resolve<ICommand>();
+            command.Abreviation = "a";
+            var result = command.Validate();
+            Assert.AreEqual(false, result);
+        }
 
         [TestMethod]
         public void ValidateCommand_ValidateLowerCase_False()
         {
-            container.RegisterType<ICommand, Command>();
             var command = container.Resolve<ICommand>();
             command.Abreviation = "r";
-            var result = command.ValidateCommand();
+            var result = command.Validate();
             Assert.AreEqual(true, result);
         }
 
         [TestMethod]
-        public void LeftCommandExecute_ChangePosition_Success()
+        public void ChangeFacing_LeftPosition_Success()
         {
-            container.RegisterType<ICommand, Command>();
             var command = container.Resolve<ICommand>();
+            var factory = container.Resolve<ICommandFactory>();
+            var robot = container.Resolve<IRobot>();
+
             command.Abreviation = "l";
-            command.ChangeFacingPosition(ref roverFacing, ref roverPositionX, ref roverPositionY);            
+            factory.ExecuteCommand(command.Abreviation, robot);
         }
     }
 }

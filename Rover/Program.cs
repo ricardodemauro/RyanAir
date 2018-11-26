@@ -1,6 +1,7 @@
 ﻿using Rover.Application;
 using Rover.Domain;
 using Rover.Domain.Contracts;
+using Rover.Domain.Entities;
 using System;
 using Unity;
 
@@ -15,33 +16,38 @@ namespace Rover.UI
                 var container = new UnityContainer();
                 container.RegisterType<ICommandFactory, CommandFactory>();
                 container.RegisterType<ICommand, Command>();
+                container.RegisterType<IRobot, Robot>();
+
                 var factory = container.Resolve<ICommandFactory>();
                 var command = container.Resolve<ICommand>();
+                var robot = container.Resolve<IRobot>();
 
-                Console.WriteLine("Write a command.\nRotate Left (L); Rotate Right (R), Forward (F):");
+                Console.WriteLine("Write a command. Default position is North (0,0).\nExit (E); Rotate Left (L); Rotate Right (R), Forward (F):");
 
-                while (true)
+                do
                 {
                     command.Abreviation = Console.ReadLine();
 
-                    if (command.ValidateCommand())
+                    if (!string.IsNullOrEmpty(command.Abreviation) && command.Abreviation.ToUpper() != "E")
                     {
-                        factory.ExecuteCommand(command.Abreviation);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid command");
+                        if (command.Validate())
+                        {
+                            factory.ExecuteCommand(command.Abreviation, robot);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid command");
+                            Console.ReadKey();
+                            Environment.Exit(0);
+                        }
                     }
                 }
+                while (command.Abreviation.ToUpper() != "E");
             }
             catch (Exception)
             {
-
-                throw;
-            }
-            finally
-            {
-
+                Console.Write("Error, try again...");
+                Environment.Exit(0);
             }
         }
     }

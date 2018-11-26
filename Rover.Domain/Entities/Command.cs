@@ -8,20 +8,19 @@ namespace Rover.Domain
         public string Description { get; set; }
         public string Abreviation { get; set; }
 
-        public bool ValidateCommand()
+        public bool Validate()
         {
             if (Abreviation.ToUpper() != "L" &&
                 Abreviation.ToUpper() != "R" &&
                 Abreviation.ToUpper() != "F")
-                return false;
+                return false;            
 
             return true;
         }
 
-        public void ChangeFacingPosition(ref RoverFacing roverFacing, ref int roverPositionX, ref int roverPositionY)
+        public void ChangeFacing(ref RoverFacing roverFacing, ref int roverPositionX, ref int roverPositionY)
         {
-            roverFacing = roverFacing == RoverFacing.North ? RoverFacing.West : (RoverFacing)((int)roverFacing - 1);
-            Console.WriteLine($"Rover is now at {roverPositionX}, {roverPositionY} - facing {roverFacing}");
+            throw new NotImplementedException();
         }
     }
 }
