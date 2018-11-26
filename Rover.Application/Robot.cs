@@ -1,7 +1,8 @@
 ﻿using System;
 using Rover.Domain.Contracts;
+using Rover.Domain;
 
-namespace Rover.Domain.Entities
+namespace Rover.Application
 {
     public class Robot : IRobot
     {

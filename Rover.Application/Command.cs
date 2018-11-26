@@ -1,6 +1,6 @@
 ﻿using Rover.Domain.Contracts;
 
-namespace Rover.Domain
+namespace Rover.Application
 {
     public class Command : ICommand
     {

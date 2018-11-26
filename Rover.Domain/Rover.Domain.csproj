@@ -42,8 +42,6 @@
   <ItemGroup>
     <Compile Include="Contracts\ICommand.cs" />
     <Compile Include="Contracts\IRobot.cs" />
-    <Compile Include="Entities\Command.cs" />
-    <Compile Include="Entities\Robot.cs" />
     <Compile Include="Enums\RoverFacing.cs" />
     <Compile Include="Contracts\ICommandFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

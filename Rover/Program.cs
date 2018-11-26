@@ -1,7 +1,6 @@
 ﻿using Rover.Application;
 using Rover.Domain;
 using Rover.Domain.Contracts;
-using Rover.Domain.Entities;
 using System;
 using Unity;
 
@@ -22,7 +21,7 @@ namespace Rover.UI
                 var command = container.Resolve<ICommand>();
                 var robot = container.Resolve<IRobot>();
 
-                PrintMessages();
+                WriteMessagesToUser();
 
                 do
                 {
@@ -48,9 +47,9 @@ namespace Rover.UI
             }
         }
 
-        private static void PrintMessages()
+        private static void WriteMessagesToUser()
         {
-            Console.WriteLine("Write a command. Default position is North (0,0)");
+            Console.WriteLine("Write a command. Default is: North (0,0)");
             Console.WriteLine("Exit (E)");
             Console.WriteLine("Rotate Left (L)");
             Console.WriteLine("Rotate Right (R)");

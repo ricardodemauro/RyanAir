@@ -3,7 +3,6 @@ using Unity;
 using Rover.Domain;
 using Rover.Domain.Contracts;
 using Rover.Application;
-using Rover.Domain.Entities;
 
 namespace Rover.Test
 {
