@@ -18,12 +18,20 @@ namespace Rover.UI
                 var factory = container.Resolve<ICommandFactory>();
                 var command = container.Resolve<ICommand>();
 
+                Console.WriteLine("Write a command.\nRotate Left (L); Rotate Right (R), Forward (F):");
+
                 while (true)
                 {
-                    Console.WriteLine("Write a command.\nRotate Left (L); Rotate Right (R), Forward (F):");
                     command.Abreviation = Console.ReadLine();
-                    command.ValidateCommand();
-                    factory.ExecuteCommand(command.Abreviation);
+
+                    if (command.ValidateCommand())
+                    {
+                        factory.ExecuteCommand(command.Abreviation);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid command");
+                    }
                 }
             }
             catch (Exception)

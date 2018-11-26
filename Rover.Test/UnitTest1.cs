@@ -10,6 +10,10 @@ namespace Rover.Test
     {
         UnityContainer container = new UnityContainer();
 
+        static RoverFacing roverFacing;
+        static int roverPositionX;
+        static int roverPositionY;
+
         [TestMethod]
         public void ValidateCommand_ValidateLowerCase_False()
         {
@@ -18,6 +22,15 @@ namespace Rover.Test
             command.Abreviation = "r";
             var result = command.ValidateCommand();
             Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void LeftCommandExecute_ChangePosition_Success()
+        {
+            container.RegisterType<ICommand, Command>();
+            var command = container.Resolve<ICommand>();
+            command.Abreviation = "l";
+            command.ChangeFacingPosition(ref roverFacing, ref roverPositionX, ref roverPositionY);            
         }
     }
 }

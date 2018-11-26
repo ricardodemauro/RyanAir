@@ -1,4 +1,5 @@
 ﻿using Rover.Domain;
+using Rover.Domain.Entities;
 using System;
 
 
@@ -12,15 +13,13 @@ namespace Rover.Application
 
         public void ExecuteCommand(string command)
         {
-            switch (command)
+            switch (command.ToUpper())
             {
                 case "L":
-                    roverFacing = roverFacing == RoverFacing.North ? RoverFacing.West : (RoverFacing)((int)roverFacing - 1);
-                    Console.WriteLine($"Rover is now at {roverPositionX}, {roverPositionY} - facing {roverFacing}");
+                    new Left().ChangeFacingPosition(ref roverFacing, ref roverPositionX, ref roverPositionY);
                     break;
                 case "R":
-                    roverFacing = roverFacing == RoverFacing.West ? RoverFacing.North : (RoverFacing)((int)roverFacing + 1);
-                    Console.WriteLine($"Rover is now at {roverPositionX}, {roverPositionY} - facing {roverFacing}");
+                    new Right().ChangeFacingPosition(ref roverFacing, ref roverPositionX, ref roverPositionY);
                     break;
                 case "F":
                     switch (roverFacing)
