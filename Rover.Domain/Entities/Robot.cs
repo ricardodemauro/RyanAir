@@ -5,19 +5,23 @@ namespace Rover.Domain.Entities
 {
     public class Robot : IRobot
     {
-        public void ChangeToLeft(ref RoverFacing roverFacing, ref int roverPositionX, ref int roverPositionY)
+        static RoverFacing roverFacing;
+        static int roverPositionX;
+        static int roverPositionY;
+
+        public void ChangeToLeft()
         {
             roverFacing = roverFacing == RoverFacing.North ? RoverFacing.West : (RoverFacing)((int)roverFacing - 1);
             Console.WriteLine($"Rover is now at {roverPositionX}, {roverPositionY} - facing {roverFacing}");
         }
 
-        public void ChangeToRight(ref RoverFacing roverFacing, ref int roverPositionX, ref int roverPositionY)
+        public void ChangeToRight()
         {
             roverFacing = roverFacing == RoverFacing.West ? RoverFacing.North : (RoverFacing)((int)roverFacing + 1);
             Console.WriteLine($"Rover is now at {roverPositionX}, {roverPositionY} - facing {roverFacing}");
         }
 
-        public void Move(ref RoverFacing roverFacing, ref int roverPositionX, ref int roverPositionY)
+        public void Move()
         {
             switch (roverFacing)
             {

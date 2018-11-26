@@ -10,10 +10,12 @@ namespace Rover.Domain
 
         public bool Validate()
         {
-            if (Abreviation.ToUpper() != "L" &&
+            if (string.IsNullOrEmpty(Abreviation) || (
+                Abreviation.ToUpper() != "L" &&
                 Abreviation.ToUpper() != "R" &&
-                Abreviation.ToUpper() != "F")
-                return false;            
+                Abreviation.ToUpper() != "F" &&
+                Abreviation.ToUpper() != "E"))
+                return false;
 
             return true;
         }

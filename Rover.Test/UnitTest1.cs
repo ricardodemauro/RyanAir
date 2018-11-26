@@ -29,6 +29,15 @@ namespace Rover.Test
         }
 
         [TestMethod]
+        public void NullCommand_ValidateLowerCase_False()
+        {
+            var command = container.Resolve<ICommand>();
+            command.Abreviation = "";
+            var result = command.Validate();
+            Assert.AreEqual(false, result);
+        }
+
+        [TestMethod]
         public void ValidateCommand_ValidateLowerCase_False()
         {
             var command = container.Resolve<ICommand>();
@@ -45,6 +54,61 @@ namespace Rover.Test
             var robot = container.Resolve<IRobot>();
 
             command.Abreviation = "l";
+            factory.ExecuteCommand(command.Abreviation, robot);
+        }
+
+        [TestMethod]
+        public void ChangeFacing_RightPosition_Success()
+        {
+            var command = container.Resolve<ICommand>();
+            var factory = container.Resolve<ICommandFactory>();
+            var robot = container.Resolve<IRobot>();
+
+            command.Abreviation = "r";
+            factory.ExecuteCommand(command.Abreviation, robot);
+        }
+
+        [TestMethod]
+        public void MoveForward_FacingWest00_Fail()
+        {
+            var command = container.Resolve<ICommand>();
+            var factory = container.Resolve<ICommandFactory>();
+            var robot = container.Resolve<IRobot>();
+
+            command.Abreviation = "f";
+            factory.ExecuteCommand(command.Abreviation, robot);
+        }
+
+        [TestMethod]
+        public void MoveForward_FacingEast04_Fail()
+        {
+            var command = container.Resolve<ICommand>();
+            var factory = container.Resolve<ICommandFactory>();
+            var robot = container.Resolve<IRobot>();
+
+            command.Abreviation = "f";
+            factory.ExecuteCommand(command.Abreviation, robot);
+        }
+
+        [TestMethod]
+        public void MoveForward_FacingSouth00_Fail()
+        {
+            var command = container.Resolve<ICommand>();
+            var factory = container.Resolve<ICommandFactory>();
+            var robot = container.Resolve<IRobot>();
+
+            command.Abreviation = "f";
+            factory.ExecuteCommand(command.Abreviation, robot);
+        }
+
+        [TestMethod]
+        public void MoveForward_FacingNorth40_Fail()
+        {
+            var command = container.Resolve<ICommand>();
+            var factory = container.Resolve<ICommandFactory>();
+            var robot = container.Resolve<IRobot>();
+
+            command.Abreviation = "f";
             factory.ExecuteCommand(command.Abreviation, robot);
         }
     }

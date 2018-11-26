@@ -22,24 +22,25 @@ namespace Rover.UI
                 var command = container.Resolve<ICommand>();
                 var robot = container.Resolve<IRobot>();
 
-                Console.WriteLine("Write a command. Default position is North (0,0).\nExit (E); Rotate Left (L); Rotate Right (R), Forward (F):");
+                Console.WriteLine("Write a command. Default position is North (0,0)");
+                Console.WriteLine("Exit (E)");
+                Console.WriteLine("Rotate Left (L)");
+                Console.WriteLine("Rotate Right (R)");
+                Console.WriteLine("Forward (F)");
 
                 do
                 {
                     command.Abreviation = Console.ReadLine();
 
-                    if (!string.IsNullOrEmpty(command.Abreviation) && command.Abreviation.ToUpper() != "E")
+                    if (command.Validate())
                     {
-                        if (command.Validate())
-                        {
-                            factory.ExecuteCommand(command.Abreviation, robot);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Invalid command");
-                            Console.ReadKey();
-                            Environment.Exit(0);
-                        }
+                        factory.ExecuteCommand(command.Abreviation, robot);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid command");
+                        Console.ReadKey();
+                        Environment.Exit(0);
                     }
                 }
                 while (command.Abreviation.ToUpper() != "E");
