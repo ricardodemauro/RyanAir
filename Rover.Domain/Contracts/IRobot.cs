@@ -2,8 +2,7 @@
 {
     public interface IRobot
     {
-        void ChangeToLeft();
-        void ChangeToRight();
-        void Move();
+        void ChangeFacing(bool left);
+        void MoveForward();
     }
 }

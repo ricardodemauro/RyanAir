@@ -10,13 +10,13 @@ namespace Rover.Application
             switch (command.ToUpper())
             {
                 case "L":
-                    robot.ChangeToLeft();
+                    robot.ChangeFacing(true);
                     break;
                 case "R":
-                    robot.ChangeToRight();
+                    robot.ChangeFacing(false);
                     break;
                 case "F":
-                    robot.Move();
+                    robot.MoveForward();
                    break;
             }
         }

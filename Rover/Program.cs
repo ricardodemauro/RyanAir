@@ -22,11 +22,7 @@ namespace Rover.UI
                 var command = container.Resolve<ICommand>();
                 var robot = container.Resolve<IRobot>();
 
-                Console.WriteLine("Write a command. Default position is North (0,0)");
-                Console.WriteLine("Exit (E)");
-                Console.WriteLine("Rotate Left (L)");
-                Console.WriteLine("Rotate Right (R)");
-                Console.WriteLine("Forward (F)");
+                PrintMessages();
 
                 do
                 {
@@ -50,6 +46,15 @@ namespace Rover.UI
                 Console.Write("Error, try again...");
                 Environment.Exit(0);
             }
+        }
+
+        private static void PrintMessages()
+        {
+            Console.WriteLine("Write a command. Default position is North (0,0)");
+            Console.WriteLine("Exit (E)");
+            Console.WriteLine("Rotate Left (L)");
+            Console.WriteLine("Rotate Right (R)");
+            Console.WriteLine("Forward (F)");
         }
     }
 }

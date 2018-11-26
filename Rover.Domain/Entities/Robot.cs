@@ -9,19 +9,17 @@ namespace Rover.Domain.Entities
         static int roverPositionX;
         static int roverPositionY;
 
-        public void ChangeToLeft()
+        public void ChangeFacing(bool left)
         {
-            roverFacing = roverFacing == RoverFacing.North ? RoverFacing.West : (RoverFacing)((int)roverFacing - 1);
+            if (left)
+                roverFacing = roverFacing == RoverFacing.North ? RoverFacing.West : (RoverFacing)((int)roverFacing - 1);
+            else
+                roverFacing = roverFacing == RoverFacing.West ? RoverFacing.North : (RoverFacing)((int)roverFacing + 1);
+
             Console.WriteLine($"Rover is now at {roverPositionX}, {roverPositionY} - facing {roverFacing}");
         }
 
-        public void ChangeToRight()
-        {
-            roverFacing = roverFacing == RoverFacing.West ? RoverFacing.North : (RoverFacing)((int)roverFacing + 1);
-            Console.WriteLine($"Rover is now at {roverPositionX}, {roverPositionY} - facing {roverFacing}");
-        }
-
-        public void Move()
+        public void MoveForward()
         {
             switch (roverFacing)
             {
